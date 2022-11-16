@@ -6,10 +6,10 @@ import (
 )
 
 func TestPerimeter(t *testing.T) {
-  got := Perimeter(10.0, 10.0)
-  want := 40
+  got := shapes.Perimeter(10.0, 10.0)
+  want := 40.0
 
   if got != want {
-    t.Errorf("got %d but want %d", got, want)
+    t.Errorf("got %.2f but want %.2f", got, want)
   }
 }
