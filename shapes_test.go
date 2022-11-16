@@ -6,7 +6,9 @@ import (
 )
 
 func TestPerimeter(t *testing.T) {
-  got := shapes.Perimeter(10.0, 10.0)
+  rect := shapes.Rectangle{10.0, 10.0}
+
+  got := shapes.Perimeter(rect)
   want := 40.0
 
   if got != want {
@@ -15,7 +17,9 @@ func TestPerimeter(t *testing.T) {
 }
 
 func TestArea(t *testing.T) {
-  got := shapes.Area(10.0, 10.0)
+  rect := shapes.Rectangle{10.0, 10.0}
+
+  got := shapes.Area(rect)
   want := 100.0
 
   if got != want {
