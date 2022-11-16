@@ -32,26 +32,29 @@ func TestPerimeter(t *testing.T) {
 }
 
 func TestArea(t *testing.T) {
-    t.Run("rectangles area", func(t *testing.T) {
+
+  checkArea := func(t testing.TB, shape shapes.Shape, want float64) {
+    t.Helper()
+    got := shape.Area()
+
+    if got != want {
+      t.Errorf("got %.2f but want %.2f", got, want)
+    }
+  }
+
+  t.Run("rectangles", func(t *testing.T) {
 
     rect := shapes.Rectangle{10.0, 10.0}
+    want := 10.0 * 10.0
 
-    got := rect.Area()
-    want := 100.0
-
-    if got != want {
-      t.Errorf("got %.2f but want %.2f", got, want)
-    }
+    checkArea(t, rect, want)
   })
 
-  t.Run("circles area", func(t *testing.T) {
-    circle := shapes.Circle{10}
+  t.Run("circles", func(t *testing.T) {
 
-    got := circle.Area()
+    circle := shapes.Circle{10}
     want := math.Pi * 10 * 10
 
-    if got != want {
-      t.Errorf("got %.2f but want %.2f", got, want)
-    }
+    checkArea(t, circle, want)
   })
 }

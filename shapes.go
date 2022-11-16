@@ -4,6 +4,10 @@ import (
   "math"
 )
 
+type Shape interface {
+  Perimeter()	float64
+  Area()	float64
+}
 
 type Rectangle struct {
   Width		float64
